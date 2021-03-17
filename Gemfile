@@ -11,6 +11,7 @@ gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'redis', '~> 4.2', '>= 4.2.5'
+gem 'connection_pool', '~> 2.2', '>= 2.2.3'
 
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -23,6 +24,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'sidekiq', '~> 6.1', '>= 6.1.3'
 gem 'sidekiq-scheduler', '~> 3.0', '>= 3.0.1'
+
+# http client
+gem "typhoeus"
 
 gem 'workstream-auth', github: 'helloworld1812/workstream-auth', branch: 'main'
 

@@ -37,6 +37,10 @@ Bundler/InsecureProtocolSource:
 Bundler/OrderedGems:
   Enabled: false
 
+Layout/LineLength:
+  Exclude:
+    - 'spec/**/*'
+
 Lint/AmbiguousBlockAssociation:
   Enabled: false
 
@@ -339,6 +343,10 @@ Lint/UselessSetterCall:
 Lint/Void:
   Description: Possible use of operator/literal/variable in void context.
   Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
 
 Naming/AccessorMethodName:
   Description: Check the naming of accessor methods for get_/set_.

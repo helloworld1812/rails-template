@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe ServiceAuth, type: :service do
-
   before do
     @public_key = "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4qZBM0Olah6X69PIyT9p\nfGbjrAyJGXOSU9W8qcc9USQpJRxH1yFOIhC8rPyM/499mDJKfSrts+F1qXj/0RCH\nQeOPWz8hcWTpDdJLrcANKykb5FOtVR7m8ov+D8x4AgA3bMJdOQoVNXL35FokA+Kg\n6bWvRWC5O4JfYi1hgU/RPxW9QWIEsOH7/Nz0p8nAu2ENmwUz/h7/xdCBPpPmmsfX\nvBDatZc4SlvIG2JHNKBSo8GIxj8evya7vJM+rdV86sSEuM+WkpMR5aF/36RDTKgJ\n9BYzbssAWtdZalU1gQMZMwCtHWEjoyCeJJ4q4QxrCEY9CnZUEq/jn86t3NDsqDLF\nMQIDAQAB\n-----END PUBLIC KEY-----\n"
     @jwk = {
