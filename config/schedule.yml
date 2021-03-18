@@ -1,0 +1,4 @@
+jwk_fetcher:
+  cron: "*/30 * * * *"
+  class: "JwkFetcherWorker"
+#  queue: hard_worker

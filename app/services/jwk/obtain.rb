@@ -1,8 +1,8 @@
 module Jwk
   class Obtain
     def self.call
-      jwk = JSON.parse(fetch.body)
-      Key.obtain_or_create_by(jwk)
+      JSON.parse(fetch.body)
+      # JsonWebKey.obtain_or_create_by(jwk)
     end
 
     def self.fetch

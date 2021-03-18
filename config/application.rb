@@ -21,5 +21,6 @@ module ConnectorBackendExample
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    # config.cache_store = :mem_cache_store, "#{ENV.fetch('MEMCACHED_HOST', 'localhost')}:#{ENV.fetch('MEMCACHED_PORT', '11211')}"
   end
 end
