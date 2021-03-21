@@ -57,7 +57,8 @@ group :development do
   gem 'capistrano-rails', '~> 1.6', '>= 1.6.1', require: false
 end
 
-gem 'dotenv-rails', groups: [:development, :test]
+# gem 'dotenv-rails', groups: [:development, :test]
+gem 'config', '~> 3.0'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
