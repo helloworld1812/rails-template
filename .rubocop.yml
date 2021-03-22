@@ -347,6 +347,7 @@ Lint/Void:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+    - 'db/schema.rb'
 
 Naming/AccessorMethodName:
   Description: Check the naming of accessor methods for get_/set_.
@@ -435,6 +436,9 @@ Naming/VariableNumber:
   Enabled: false
 
 Naming/RescuedExceptionsVariableName:
+  Enabled: false
+
+Rails/ReversibleMigration:
   Enabled: false
 
 Style/AccessModifierDeclarations:

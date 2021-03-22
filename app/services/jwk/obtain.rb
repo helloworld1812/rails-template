@@ -6,7 +6,7 @@ module Jwk
     end
 
     def self.fetch
-      Typhoeus.get(ENV.fetch('JWK_URL', 'https://api.workstream.us/jwks.json'.freeze))
+      Typhoeus.get(ENV.fetch('JWK_URL', 'https://api-staging.workstream.is/jwk'.freeze))
     end
   end
 end
