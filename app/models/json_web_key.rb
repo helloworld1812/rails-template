@@ -1,5 +1,5 @@
 class JsonWebKey
-  @instance = nil
+  @instance = new
 
   def self.instance
     @instance ||= new

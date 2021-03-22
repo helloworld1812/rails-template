@@ -6,7 +6,7 @@ class CreateHrs < ActiveRecord::Migration[6.1]
       t.string :phone
       t.string :name
       t.string :email
-      t.integer :status, default: 0, null: false
+      t.integer :status
 
       t.timestamps
     end

@@ -4,7 +4,7 @@ class CreateEmployee < ActiveRecord::Migration[6.1]
       t.uuid :uuid, index: true, unique: true, null: false
       t.belongs_to :company
       t.belongs_to :hr
-      t.integer :status, default: 0, null: false
+      t.integer :status
 
       t.timestamps
     end

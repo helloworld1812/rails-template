@@ -3,7 +3,7 @@ class CreateCompanies < ActiveRecord::Migration[6.1]
     create_table :companies do |t|
       t.uuid :uuid, null: false, index: true, unique: true
       t.string :name
-      t.integer :status, default: 0
+      t.integer :status
 
       t.timestamps
     end
