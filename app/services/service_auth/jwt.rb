@@ -1,8 +1,10 @@
+require_relative 'error'
+
 module ServiceAuth
   class Jwt
     class << self
       def obtain_public_key(jwk_data)
-        Workstream::Auth::Jwk.public_key(jwk_data)
+        Workstream::Auth::Jwk.public_key(jwk_data.symbolize_keys)
       rescue
         raise JwkDataError
       end
