@@ -437,6 +437,9 @@ Naming/VariableNumber:
 Naming/RescuedExceptionsVariableName:
   Enabled: false
 
+Rails/ReversibleMigration:
+  Enabled: false
+
 Style/AccessModifierDeclarations:
   Enabled: false
 
