@@ -1,0 +1,76 @@
+  .# Ruby CircleCI 2.0 configuration file
+  #
+  # Check https://circleci.com/docs/2.0/language-ruby/ for more details
+  #
+  version: 2
+  jobs:
+    build:
+      parallelism: 4
+      working_directory: ~/connector_backend_example
+      docker:
+        # specify the version you desire here
+        - image: circleci/ruby:2.6.6
+          environment:
+            BUNDLE_JOBS: 3
+            BUNDLE_RETRY: 3
+            BUNDLE_PATH: vendor/bundle
+            PGHOST: 127.0.0.1
+            PGUSER: root
+            RAILS_ENV: test
+        - image: circleci/postgres:9.6
+          environment:
+            POSTGRES_USER: root
+            POSTGRES_DB: connector_backend_example_test
+            POSTGRES_PASSWORD: test
+#        - image: docker.elastic.co/elasticsearch/elasticsearch:6.3.2
+        - image: redis
+
+      steps:
+        - checkout
+        - run: cp config/database.yml.example config/database.yml
+        # - run: sudo chmod 777 /root/repo/vendor/bundle
+
+        # Download and cache dependencies
+        - restore_cache:
+            key: connector_backend_example-{{ checksum "Gemfile.lock" }}
+
+        - run:
+            name: install dependencies
+            command: |
+              bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+        - save_cache:
+            paths:
+              - ./vendor/bundle
+            key: connector_backend_example-{{ checksum "Gemfile.lock" }}
+
+        # Database setup
+        #      - run: bundle exec rake db:create
+        - run: bundle exec rake db:schema:load
+
+        # run tests!
+        - run:
+            name: run tests
+            command: |
+              mkdir /tmp/test-results
+              echo "=============================================="
+              echo "Split test cases based on classname"
+              TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=name)"
+
+              echo "=============================================="
+              echo "the following test files will be run on this container"
+              echo $TEST_FILES | sed -e 'y/ /\n/;P;D'
+
+              echo "=============================================="
+              bundle exec rspec --profile 10 \
+                                --format RspecJunitFormatter \
+                                --out /tmp/test-results/rspec.xml \
+                                --format progress \
+                                $TEST_FILES
+
+        # collect reports
+        - store_test_results:
+            path: /tmp/test-results
+        - store_artifacts:
+            path: /tmp/test-results
+            destination: test-results
