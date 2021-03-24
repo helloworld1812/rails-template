@@ -1,0 +1,9 @@
+app:
+  name: Application Name
+tasks:
+  task_one:
+    # 标题的使用页面如下
+    # https://helloworld1812.github.io/onboarding-architecture-doc/assets/media/2021-02-23_19-44-06.jpg
+    title: 少于15个字的标题
+  task_two:
+    title: 少于15个字的标题

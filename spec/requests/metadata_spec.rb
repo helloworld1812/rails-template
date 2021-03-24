@@ -15,7 +15,7 @@ RSpec.describe "Metadata", type: :request do
       expect(result[:tasks].present?).to be true
 
       result[:tasks].each do |task_name, task_schema|
-        expect(%w[hr employee].include? task_schema['assignee_type']).to be true, 'assignee_type could be one of [hr, employee]'
+        expect(%w[hr employee].include? task_schema['assignee_type']).to be true
         expect(task_schema[:sequence].present?).to be true
         expect(task_schema[:sequence].is_a?(Integer)).to be true
       end

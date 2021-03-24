@@ -4,7 +4,7 @@ require 'sidekiq/cron/web'
 
 Rails.application.routes.draw do
   resource :metadata, only: :show, default: { format: :json }
-
+  resources :translations, only: :show, param: :code
 
 
 
