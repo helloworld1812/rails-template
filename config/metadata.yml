@@ -1,0 +1,19 @@
+app_name: todo
+version: '1.0'
+author:
+  name: todo
+  email: todo@workstream.is
+tasks:
+  task_one:
+    assignee_type: employee
+    sequence: 1
+  task_two:
+    assignee_type: hr
+    sequence: 2
+
+## Add more task if your connector needs.
+#  task_three:
+#    assignee_type: hr
+#    sequence: 2
+options:
+  task_completed_return_url: true
