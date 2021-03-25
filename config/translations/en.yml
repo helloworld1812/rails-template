@@ -1,0 +1,18 @@
+# the following is an example of e-verify.
+#app:
+#  name: E-Verify
+#tasks:
+#  task_one:
+#    title: Employee fill section1 of I9 form.
+#  task_two:
+#    title: Employer fill section2 of I9 form and verify the eligibility of worker.
+
+app:
+  name: Application Name
+tasks:
+  task_one:
+    # the title of task will be used in this place.
+    # https://helloworld1812.github.io/onboarding-architecture-doc/assets/media/2021-02-23_19-44-06.jpg
+    title: a title within 7 words.
+  task_two:
+    title: a title within 7 words.
