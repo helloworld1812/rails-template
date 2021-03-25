@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resource :metadata, only: :show, default: { format: :json }
   resources :translations, only: :show, param: :code
 
+  resources :tasks, only: :show, param: :task_name
+
 
 
   # Sidekiq Stuff

@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_071131) do
+ActiveRecord::Schema.define(version: 2021_03_24_054944) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "companies", force: :cascade do |t|
@@ -47,6 +48,23 @@ ActiveRecord::Schema.define(version: 2021_03_22_071131) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["company_id"], name: "index_hrs_on_company_id"
     t.index ["uuid"], name: "index_hrs_on_uuid"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.uuid "configuration_uuid", null: false
+    t.uuid "group_uuid", null: false, comment: "which employee does this task belongs to."
+    t.uuid "company_uuid", null: false
+    t.string "role", null: false
+    t.string "status", null: false
+    t.string "assignee_type", null: false
+    t.string "assignee_uuids", default: [], array: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_uuid"], name: "index_tasks_on_company_uuid"
+    t.index ["configuration_uuid"], name: "index_tasks_on_configuration_uuid"
+    t.index ["group_uuid"], name: "index_tasks_on_group_uuid"
+    t.index ["uuid"], name: "index_tasks_on_uuid"
   end
 
 end

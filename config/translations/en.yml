@@ -8,7 +8,7 @@
 #    title: Employer fill section2 of I9 form and verify the eligibility of worker.
 
 app:
-  name: Application Name
+  title: Application Name
 tasks:
   task_one:
     # the title of task will be used in this place.

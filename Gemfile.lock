@@ -70,6 +70,9 @@ GEM
       zeitwerk (~> 2.3)
     airbrussh (1.4.0)
       sshkit (>= 1.6.1, != 1.7.0)
+    annotate (3.1.1)
+      activerecord (>= 3.2, < 7.0)
+      rake (>= 10.4, < 14.0)
     ast (2.4.2)
     bindex (0.8.1)
     bootsnap (1.7.2)
@@ -130,6 +133,8 @@ GEM
       dry-equalizer (~> 0.2)
       dry-initializer (~> 3.0)
       dry-schema (~> 1.5, >= 1.5.2)
+    enumerize (2.4.0)
+      activesupport (>= 3.2)
     erubi (1.10.0)
     et-orbi (1.2.4)
       tzinfo
@@ -318,6 +323,7 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
+  annotate
   bootsnap (>= 1.4.4)
   byebug
   capistrano (~> 3.16)
@@ -325,6 +331,7 @@ DEPENDENCIES
   config (~> 3.0)
   connection_pool (~> 2.2, >= 2.2.3)
   dalli (~> 2.7, >= 2.7.11)
+  enumerize
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)

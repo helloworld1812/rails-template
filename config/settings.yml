@@ -1,0 +1,2 @@
+hosts:
+  frontend_host: "http://localhost:9000"
