@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @task.id %>
+</p>
+
+<p>
+  <strong>Uuid:</strong>
+  <%= @task.uuid %>
+</p>
+
+<p>
+  <strong>Configuration uuid:</strong>
+  <%= @task.configuration_uuid %>
+</p>
+
+<p>
+  <strong>Group uuid:</strong>
+  <%= @task.group_uuid %>
+</p>
+
+<p>
+  <strong>Company uuid:</strong>
+  <%= @task.company_uuid %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @task.role %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @task.status %>
+</p>
+
+<p>
+  <strong>Assignee type:</strong>
+  <%= @task.assignee_type %>
+</p>
+
+<p>
+  <strong>Assignee ids:</strong>
+  <%= @task.assignee_ids %>
+</p>
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>

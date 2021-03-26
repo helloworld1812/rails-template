@@ -14,6 +14,8 @@ gem 'redis', '~> 4.2', '>= 4.2.5'
 gem 'connection_pool', '~> 2.2', '>= 2.2.3'
 gem 'dalli', '~> 2.7', '>= 2.7.11'
 
+gem 'enumerize'
+
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -45,6 +47,9 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate'
+  ## squash multiple migration files to one.
+  gem 'squasher'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
