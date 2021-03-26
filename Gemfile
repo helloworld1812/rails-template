@@ -35,6 +35,9 @@ gem "typhoeus"
 
 gem 'workstream-auth', github: 'helloworld1812/workstream-auth', branch: 'main'
 
+# kafka message consumer
+gem 'racecar'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
