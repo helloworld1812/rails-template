@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Uuid:</strong>
+  <%= @configuration.uuid %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @configuration.status %>
+</p>
+
+<p>
+  <strong>Core company uuid:</strong>
+  <%= @configuration.core_company_uuid %>
+</p>
+
+<p>
+  <strong>Config:</strong>
+  <%= @configuration.config %>
+</p>
+
+<%= link_to 'Edit', edit_configuration_path(@configuration) %> |
+<%= link_to 'Back', configurations_path %>
