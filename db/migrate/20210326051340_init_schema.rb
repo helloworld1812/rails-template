@@ -30,7 +30,7 @@ class InitSchema < ActiveRecord::Migration[6.1]
     end
     create_table "core_employee_informations", id: false do |t|
       t.uuid "uuid", null: false, primary_key: true
-      t.uuid "coreemployee_uuid", null: false
+      t.uuid "core_employee_uuid", null: false
       t.uuid "core_company_uuid", null: false
       t.string "first_name"
       t.string "middle_name"
