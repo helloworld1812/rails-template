@@ -2,14 +2,10 @@
 #
 # Table name: connector_example_models
 #
-#  deleted_at :datetime
-#  uuid       :uuid
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#
-# Indexes
-#
-#  index_connector_example_models_on_uuid  (uuid)
+#  core_created_at :datetime
+#  core_deleted_at :datetime
+#  core_updated_at :datetime
+#  uuid            :uuid             not null, primary key
 #
 require 'rails_helper'
 

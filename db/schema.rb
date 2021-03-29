@@ -30,6 +30,20 @@ ActiveRecord::Schema.define(version: 2021_03_26_051340) do
     t.datetime "core_deleted_at", precision: 6
   end
 
+  create_table "core_company_staffs", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|
+    t.uuid "core_company_uuid", null: false
+    t.string "phone_country_code"
+    t.string "phone_number"
+    t.string "phone_extension"
+    t.string "name"
+    t.string "email"
+    t.string "status"
+    t.datetime "core_created_at", precision: 6
+    t.datetime "core_updated_at", precision: 6
+    t.datetime "core_deleted_at", precision: 6
+    t.index ["core_company_uuid"], name: "index_core_hrs_on_core_company_uuid"
+  end
+
   create_table "core_configurations", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|
     t.uuid "core_company_uuid", null: false
     t.string "status"
@@ -86,23 +100,11 @@ ActiveRecord::Schema.define(version: 2021_03_26_051340) do
   end
 
   create_table "core_employees", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|
-    t.uuid "core_company_uuid", null: false
+    t.uuid "core_company_uuid"
     t.datetime "core_created_at", precision: 6
     t.datetime "core_updated_at", precision: 6
     t.datetime "core_deleted_at", precision: 6
     t.index ["core_company_uuid"], name: "index_core_employees_on_core_company_uuid"
-  end
-
-  create_table "core_hrs", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|
-    t.uuid "core_company_uuid", null: false
-    t.string "phone"
-    t.string "name"
-    t.string "email"
-    t.string "status"
-    t.datetime "core_created_at", precision: 6
-    t.datetime "core_updated_at", precision: 6
-    t.datetime "core_deleted_at", precision: 6
-    t.index ["core_company_uuid"], name: "index_core_hrs_on_core_company_uuid"
   end
 
   create_table "core_tasks", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|

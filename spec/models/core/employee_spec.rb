@@ -2,16 +2,15 @@
 #
 # Table name: core_employees
 #
-#  core_company_uuid :uuid             not null
-#  deleted_at        :datetime
-#  uuid              :uuid
-#  created_at        :datetime         not null
-#  updated_at        :datetime         not null
+#  core_company_uuid :uuid
+#  core_created_at   :datetime
+#  core_deleted_at   :datetime
+#  core_updated_at   :datetime
+#  uuid              :uuid             not null, primary key
 #
 # Indexes
 #
 #  index_core_employees_on_core_company_uuid  (core_company_uuid)
-#  index_core_employees_on_uuid               (uuid)
 #
 require 'rails_helper'
 

@@ -3,11 +3,13 @@
 # Table name: core_employee_informations
 #
 #  apply_date              :date
-#  company_uuid            :uuid
+#  core_company_uuid       :uuid             not null
+#  core_created_at         :datetime
+#  core_deleted_at         :datetime
+#  core_employee_uuid      :uuid             not null
+#  core_updated_at         :datetime
 #  date_of_birth           :date
-#  deleted_at              :datetime
 #  department_name         :string
-#  employee_uuid           :uuid
 #  ethnicity               :string
 #  first_name              :string
 #  gender                  :string
@@ -29,15 +31,12 @@
 #  ssn                     :string
 #  start_date              :date
 #  termination_date        :date
-#  uuid                    :uuid
-#  created_at              :datetime         not null
-#  updated_at              :datetime         not null
+#  uuid                    :uuid             not null, primary key
 #
 # Indexes
 #
-#  index_core_employee_informations_on_company_uuid   (company_uuid)
-#  index_core_employee_informations_on_employee_uuid  (employee_uuid)
-#  index_core_employee_informations_on_uuid           (uuid)
+#  index_core_ei_on_company_uuid   (core_company_uuid)
+#  index_core_ei_on_employee_uuid  (core_employee_uuid)
 #
 class Core::EmployeeInformation < ApplicationRecord
 end

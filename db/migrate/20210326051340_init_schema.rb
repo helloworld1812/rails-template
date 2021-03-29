@@ -83,10 +83,12 @@ class InitSchema < ActiveRecord::Migration[6.1]
       t.index ["core_company_uuid"], name: "index_core_employees_on_core_company_uuid"
       # t.index ["uuid"], name: "index_core_employees_on_uuid"
     end
-    create_table "core_hrs", id: false do |t|
+    create_table "core_company_staffs", id: false do |t|
       t.uuid "uuid", null: false, primary_key: true
       t.uuid "core_company_uuid", null: false
-      t.string "phone"
+      t.string "phone_country_code"
+      t.string "phone_number"
+      t.string "phone_extension"
       t.string "name"
       t.string "email"
       t.string "status"

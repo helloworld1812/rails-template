@@ -37,6 +37,7 @@ gem 'workstream-auth', github: 'helloworld1812/workstream-auth', branch: 'main'
 
 # kafka message consumer
 gem 'racecar'
+gem 'workstream_protocol', '0.2.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

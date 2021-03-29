@@ -3,18 +3,17 @@
 # Table name: core_employee_onboarding_processes
 #
 #  configurations     :jsonb
-#  core_company_uuid  :uuid
-#  core_employee_uuid :uuid
-#  deleted_at         :datetime
-#  uuid               :uuid
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
+#  core_company_uuid  :uuid             not null
+#  core_created_at    :datetime
+#  core_deleted_at    :datetime
+#  core_employee_uuid :uuid             not null
+#  core_updated_at    :datetime
+#  uuid               :uuid             not null, primary key
 #
 # Indexes
 #
-#  index_core_employee_onboarding_processes_on_core_company_uuid   (core_company_uuid)
-#  index_core_employee_onboarding_processes_on_core_employee_uuid  (core_employee_uuid)
-#  index_core_employee_onboarding_processes_on_uuid                (uuid)
+#  index_core_eop_on_core_company_uuid   (core_company_uuid)
+#  index_core_eop_on_core_employee_uuid  (core_employee_uuid)
 #
 class Core::EmployeeOnboardingProcess < ApplicationRecord
 end
