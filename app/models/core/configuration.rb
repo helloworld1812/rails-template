@@ -12,7 +12,8 @@
 #
 # Indexes
 #
-#  index_core_configurations_on_uuid  (uuid)
+#  index_core_configurations_on_core_company_uuid  (core_company_uuid)
+#  index_core_configurations_on_uuid               (uuid)
 #
 class Core::Configuration < ApplicationRecord
 end

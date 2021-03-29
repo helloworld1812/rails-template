@@ -2,6 +2,7 @@
 #
 # Table name: connector_example_models
 #
+#  deleted_at :datetime
 #  uuid       :uuid
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

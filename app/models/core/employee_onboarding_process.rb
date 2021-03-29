@@ -12,7 +12,9 @@
 #
 # Indexes
 #
-#  index_core_employee_onboarding_processes_on_uuid  (uuid)
+#  index_core_employee_onboarding_processes_on_core_company_uuid   (core_company_uuid)
+#  index_core_employee_onboarding_processes_on_core_employee_uuid  (core_employee_uuid)
+#  index_core_employee_onboarding_processes_on_uuid                (uuid)
 #
 class Core::EmployeeOnboardingProcess < ApplicationRecord
 end

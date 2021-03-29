@@ -14,7 +14,8 @@
 #
 # Indexes
 #
-#  index_core_hrs_on_uuid  (uuid)
+#  index_core_hrs_on_core_company_uuid  (core_company_uuid)
+#  index_core_hrs_on_uuid               (uuid)
 #
 require 'rails_helper'
 
