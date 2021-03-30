@@ -333,6 +333,9 @@ GEM
       google-protobuf
     zeitwerk (2.4.2)
 
+PLATFORMS
+  x86_64-darwin-19
+
 DEPENDENCIES
   annotate
   bootsnap (>= 1.4.4)
@@ -347,6 +350,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (~> 3.3)
   mimemagic (= 0.3.9)
+  nokogiri
   pg (~> 1.1)
   pry
   puma (~> 5.0)

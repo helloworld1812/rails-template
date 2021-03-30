@@ -37,6 +37,8 @@ gem 'mimemagic', '0.3.9'
 
 gem 'workstream-auth', github: 'helloworld1812/workstream-auth', branch: 'main'
 
+gem 'nokogiri', platform: :ruby
+
 # kafka message consumer
 gem 'google-protobuf', "~> 3.14"
 gem 'racecar'
