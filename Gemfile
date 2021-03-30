@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 
-gem 'rails', '~> 6.1.1'
+gem 'rails'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
@@ -13,8 +13,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'redis', '~> 4.2', '>= 4.2.5'
 gem 'connection_pool', '~> 2.2', '>= 2.2.3'
 gem 'dalli', '~> 2.7', '>= 2.7.11'
-
 gem 'enumerize'
+gem 'mimemagic', '0.3.9'
 
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -41,6 +41,7 @@ gem 'workstream-auth', github: 'helloworld1812/workstream-auth', branch: 'main'
 gem 'google-protobuf', "~> 3.14"
 gem 'racecar'
 gem 'workstream_protocol', '0.2.2'
+gem 'google-protobuf', platforms: [:ruby]
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -67,6 +68,8 @@ group :development do
   gem 'spring'
   gem 'capistrano', '~> 3.16', require: false
   gem 'capistrano-rails', '~> 1.6', '>= 1.6.1', require: false
+  gem 'capistrano3-puma'
+  gem 'capistrano-rbenv'
 end
 
 # gem 'dotenv-rails', groups: [:development, :test]
