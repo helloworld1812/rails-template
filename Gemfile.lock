@@ -333,10 +333,6 @@ GEM
       google-protobuf
     zeitwerk (2.4.2)
 
-PLATFORMS
-  x86_64-darwin-19
-  x86_64-darwin-20
-
 DEPENDENCIES
   annotate
   bootsnap (>= 1.4.4)
