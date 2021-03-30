@@ -41,6 +41,7 @@ gem 'workstream-auth', github: 'helloworld1812/workstream-auth', branch: 'main'
 gem 'google-protobuf', "~> 3.14"
 gem 'racecar'
 gem 'workstream_protocol', '0.2.2'
+gem 'google-protobuf', platforms: [:ruby]
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
