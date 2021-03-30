@@ -353,6 +353,8 @@ DEPENDENCIES
   byebug
   capistrano (~> 3.16)
   capistrano-rails (~> 1.6, >= 1.6.1)
+  capistrano-rbenv
+  capistrano3-puma
   config (~> 3.0)
   connection_pool (~> 2.2, >= 2.2.3)
   dalli (~> 2.7, >= 2.7.11)
