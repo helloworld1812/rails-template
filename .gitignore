@@ -40,7 +40,7 @@ yarn-debug.log*
 
 config/settings.local.yml
 config/settings/*.local.yml
+config/settings/development.yml
 config/environments/*.local.yml
 /config/credentials/staging.key
-
 /config/credentials/sandbox.key
