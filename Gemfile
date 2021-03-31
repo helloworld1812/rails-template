@@ -33,8 +33,6 @@ gem 'sidekiq-cron'
 # http client
 gem "typhoeus"
 
-gem 'mimemagic', '0.3.9'
-
 gem 'workstream-auth', github: 'helloworld1812/workstream-auth', branch: 'main'
 
 # kafka message consumer
