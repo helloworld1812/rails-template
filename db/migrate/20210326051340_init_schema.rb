@@ -18,7 +18,7 @@ class InitSchema < ActiveRecord::Migration[6.1]
       t.datetime "core_updated_at", precision: 6
       t.datetime "core_deleted_at", precision: 6
     end
-    create_table "core_configurations", id: false do |t|
+    create_table "configurations", id: false do |t|
       t.uuid "uuid", null: false, primary_key: true
       t.uuid "core_company_uuid", null: false
       t.string "status"
@@ -63,16 +63,20 @@ class InitSchema < ActiveRecord::Migration[6.1]
       t.index ["core_employee_uuid"], name: "index_core_ei_on_employee_uuid"
       # t.index ["uuid"], name: "index_core_employee_informations_on_uuid"
     end
-    create_table "core_employee_onboarding_processes", id: false do |t|
-      t.uuid "uuid", null: false, primary_key: true
-      t.uuid "core_employee_uuid", null: false
-      t.uuid "core_company_uuid", null: false
-      t.jsonb "configurations"
-      t.datetime "core_created_at", precision: 6
-      t.datetime "core_updated_at", precision: 6
-      t.datetime "core_deleted_at", precision: 6
-      t.index ["core_company_uuid"], name: "index_core_eop_on_core_company_uuid"
-      t.index ["core_employee_uuid"], name: "index_core_eop_on_core_employee_uuid"
+    create_table :core_employee_onboarding_events, id: false do |t|
+      t.uuid :uuid, null: false, primary_key: true
+      t.uuid :core_company_uuid
+      t.uuid :core_employee_uuid
+      t.uuid :configuration_uuid
+      t.datetime :core_created_at
+      t.datetime :core_updated_at
+      t.datetime :core_deleted_at
+      t.string :status
+      t.string :app_name
+
+      t.timestamps
+      t.index :core_company_uuid
+      t.index :core_employee_uuid
     end
     create_table "core_employees", id: false do |t|
       t.uuid "uuid", null: false, primary_key: true
@@ -96,12 +100,11 @@ class InitSchema < ActiveRecord::Migration[6.1]
       t.datetime "core_updated_at", precision: 6
       t.datetime "core_deleted_at", precision: 6
       t.index ["core_company_uuid"], name: "index_core_hrs_on_core_company_uuid"
-      # t.index ["uuid"], name: "index_core_hrs_on_uuid"
     end
-    create_table "core_tasks", id: false do |t|
+    create_table "tasks", id: false do |t|
       t.uuid "uuid", null: false, primary_key: true
       t.uuid "core_employee_uuid", null: false
-      t.uuid "core_configuration_uuid", null: false
+      t.uuid "configuration_uuid", null: false
       t.uuid "core_process_uuid", null: false
       t.uuid "core_company_uuid", null: false
       t.uuid "assignee_uuids", default: [], array: true
@@ -113,11 +116,10 @@ class InitSchema < ActiveRecord::Migration[6.1]
       t.datetime "core_created_at", precision: 6
       t.datetime "core_updated_at", precision: 6
       t.datetime "core_deleted_at", precision: 6
-      t.index ["core_company_uuid"], name: "index_core_tasks_on_core_company_uuid"
-      t.index ["core_configuration_uuid"], name: "index_core_tasks_on_core_configuration_uuid"
-      t.index ["core_employee_uuid"], name: "index_core_tasks_on_core_employee_uuid"
-      t.index ["core_process_uuid"], name: "index_core_tasks_on_core_process_uuid"
-      # t.index ["uuid"], name: "index_core_tasks_on_uuid"
+      t.index :core_company_uuid
+      t.index :core_employee_uuid
+      t.index :core_process_uuid
+      t.index :configuration_uuid
     end
   end
 

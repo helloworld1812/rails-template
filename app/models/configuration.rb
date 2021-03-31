@@ -14,5 +14,5 @@
 #
 #  index_core_configurations_on_core_company_uuid  (core_company_uuid)
 #
-class Core::Configuration < ApplicationRecord
+class Configuration < ApplicationRecord
 end

@@ -1,5 +1,5 @@
 module Core
-  class EmployeeOnboardingProcessConsumer < Racecar::Consumer
+  class EmployeeOnboardingEventConsumer < Racecar::Consumer
     subscribes_to "todo"
 
     def process(message)

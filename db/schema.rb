@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_26_051340) do
+ActiveRecord::Schema.define(version: 2021_03_31_033121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -88,15 +88,17 @@ ActiveRecord::Schema.define(version: 2021_03_26_051340) do
     t.index ["core_employee_uuid"], name: "index_core_ei_on_employee_uuid"
   end
 
-  create_table "core_employee_onboarding_processes", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|
-    t.uuid "core_employee_uuid", null: false
-    t.uuid "core_company_uuid", null: false
-    t.jsonb "configurations"
-    t.datetime "core_created_at", precision: 6
-    t.datetime "core_updated_at", precision: 6
-    t.datetime "core_deleted_at", precision: 6
-    t.index ["core_company_uuid"], name: "index_core_eop_on_core_company_uuid"
-    t.index ["core_employee_uuid"], name: "index_core_eop_on_core_employee_uuid"
+  create_table "core_employee_onboarding_events", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|
+    t.uuid "core_company_uuid"
+    t.uuid "core_employee_uuid"
+    t.datetime "core_created_at"
+    t.datetime "core_updated_at"
+    t.datetime "core_deleted_at"
+    t.uuid "configuration_uuid"
+    t.string "status"
+    t.string "app_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "core_employees", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|
