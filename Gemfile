@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'redis', '~> 4.2', '>= 4.2.5'
 gem 'connection_pool', '~> 2.2', '>= 2.2.3'
 gem 'dalli', '~> 2.7', '>= 2.7.11'
+
 gem 'enumerize'
 gem 'mimemagic', '0.3.9'
 
@@ -32,7 +33,6 @@ gem 'sidekiq-cron'
 
 # http client
 gem "typhoeus"
-
 gem 'workstream-auth', github: 'helloworld1812/workstream-auth', branch: 'main'
 
 # kafka message consumer
@@ -68,6 +68,8 @@ group :development do
   gem 'capistrano-rails', '~> 1.6', '>= 1.6.1', require: false
   gem 'capistrano3-puma'
   gem 'capistrano-rbenv'
+  gem 'capistrano-sidekiq'
+  gem 'capistrano-foreman'
 end
 
 # gem 'dotenv-rails', groups: [:development, :test]
