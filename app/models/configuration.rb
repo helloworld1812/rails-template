@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: core_configurations
+# Table name: configurations
 #
 #  config            :jsonb
 #  core_company_uuid :uuid             not null

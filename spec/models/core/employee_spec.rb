@@ -2,7 +2,7 @@
 #
 # Table name: core_employees
 #
-#  core_company_uuid :uuid
+#  core_company_uuid :uuid             not null
 #  core_created_at   :datetime
 #  core_deleted_at   :datetime
 #  core_updated_at   :datetime

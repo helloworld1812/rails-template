@@ -14,6 +14,11 @@
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #
+# Indexes
+#
+#  index_core_employee_onboarding_events_on_core_company_uuid   (core_company_uuid)
+#  index_core_employee_onboarding_events_on_core_employee_uuid  (core_employee_uuid)
+#
 require 'rails_helper'
 
 RSpec.describe Core::EmployeeOnboardingEvent, type: :model do

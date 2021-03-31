@@ -10,11 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_31_033121) do
+ActiveRecord::Schema.define(version: 2021_03_26_051340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "configurations", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|
+    t.uuid "core_company_uuid", null: false
+    t.string "status"
+    t.jsonb "config", default: {}
+    t.datetime "core_created_at", precision: 6
+    t.datetime "core_updated_at", precision: 6
+    t.datetime "core_deleted_at", precision: 6
+    t.index ["core_company_uuid"], name: "index_core_configurations_on_core_company_uuid"
+  end
 
   create_table "connector_example_models", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|
     t.datetime "core_created_at", precision: 6
@@ -42,16 +52,6 @@ ActiveRecord::Schema.define(version: 2021_03_31_033121) do
     t.datetime "core_updated_at", precision: 6
     t.datetime "core_deleted_at", precision: 6
     t.index ["core_company_uuid"], name: "index_core_hrs_on_core_company_uuid"
-  end
-
-  create_table "core_configurations", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|
-    t.uuid "core_company_uuid", null: false
-    t.string "status"
-    t.jsonb "config", default: {}
-    t.datetime "core_created_at", precision: 6
-    t.datetime "core_updated_at", precision: 6
-    t.datetime "core_deleted_at", precision: 6
-    t.index ["core_company_uuid"], name: "index_core_configurations_on_core_company_uuid"
   end
 
   create_table "core_employee_informations", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|
@@ -91,27 +91,29 @@ ActiveRecord::Schema.define(version: 2021_03_31_033121) do
   create_table "core_employee_onboarding_events", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|
     t.uuid "core_company_uuid"
     t.uuid "core_employee_uuid"
+    t.uuid "configuration_uuid"
     t.datetime "core_created_at"
     t.datetime "core_updated_at"
     t.datetime "core_deleted_at"
-    t.uuid "configuration_uuid"
     t.string "status"
     t.string "app_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["core_company_uuid"], name: "index_core_employee_onboarding_events_on_core_company_uuid"
+    t.index ["core_employee_uuid"], name: "index_core_employee_onboarding_events_on_core_employee_uuid"
   end
 
   create_table "core_employees", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|
-    t.uuid "core_company_uuid"
+    t.uuid "core_company_uuid", null: false
     t.datetime "core_created_at", precision: 6
     t.datetime "core_updated_at", precision: 6
     t.datetime "core_deleted_at", precision: 6
     t.index ["core_company_uuid"], name: "index_core_employees_on_core_company_uuid"
   end
 
-  create_table "core_tasks", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|
+  create_table "tasks", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|
     t.uuid "core_employee_uuid", null: false
-    t.uuid "core_configuration_uuid", null: false
+    t.uuid "configuration_uuid", null: false
     t.uuid "core_process_uuid", null: false
     t.uuid "core_company_uuid", null: false
     t.uuid "assignee_uuids", default: [], array: true
@@ -123,10 +125,10 @@ ActiveRecord::Schema.define(version: 2021_03_31_033121) do
     t.datetime "core_created_at", precision: 6
     t.datetime "core_updated_at", precision: 6
     t.datetime "core_deleted_at", precision: 6
-    t.index ["core_company_uuid"], name: "index_core_tasks_on_core_company_uuid"
-    t.index ["core_configuration_uuid"], name: "index_core_tasks_on_core_configuration_uuid"
-    t.index ["core_employee_uuid"], name: "index_core_tasks_on_core_employee_uuid"
-    t.index ["core_process_uuid"], name: "index_core_tasks_on_core_process_uuid"
+    t.index ["configuration_uuid"], name: "index_tasks_on_configuration_uuid"
+    t.index ["core_company_uuid"], name: "index_tasks_on_core_company_uuid"
+    t.index ["core_employee_uuid"], name: "index_tasks_on_core_employee_uuid"
+    t.index ["core_process_uuid"], name: "index_tasks_on_core_process_uuid"
   end
 
 end
