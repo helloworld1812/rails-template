@@ -2,13 +2,14 @@
 #
 # Table name: configurations
 #
-#  config            :jsonb
-#  core_company_uuid :uuid             not null
-#  core_created_at   :datetime
-#  core_deleted_at   :datetime
-#  core_updated_at   :datetime
-#  status            :string
-#  uuid              :uuid             not null, primary key
+#  config              :jsonb
+#  core_company_uuid   :uuid             not null
+#  default_assignments :jsonb
+#  deleted_at          :datetime
+#  status              :string
+#  uuid                :uuid             not null, primary key
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
 #
 # Indexes
 #

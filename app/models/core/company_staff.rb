@@ -13,6 +13,8 @@
 #  phone_number       :string
 #  status             :string
 #  uuid               :uuid             not null, primary key
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
 #
 # Indexes
 #

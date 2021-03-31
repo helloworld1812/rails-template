@@ -7,6 +7,8 @@
 #  core_deleted_at   :datetime
 #  core_updated_at   :datetime
 #  uuid              :uuid             not null, primary key
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
 #
 # Indexes
 #

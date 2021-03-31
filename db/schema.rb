@@ -20,16 +20,17 @@ ActiveRecord::Schema.define(version: 2021_03_26_051340) do
     t.uuid "core_company_uuid", null: false
     t.string "status"
     t.jsonb "config", default: {}
-    t.datetime "core_created_at", precision: 6
-    t.datetime "core_updated_at", precision: 6
-    t.datetime "core_deleted_at", precision: 6
+    t.jsonb "default_assignments", default: {}
+    t.datetime "deleted_at", precision: 6
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["core_company_uuid"], name: "index_core_configurations_on_core_company_uuid"
   end
 
   create_table "connector_example_models", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|
-    t.datetime "core_created_at", precision: 6
-    t.datetime "core_updated_at", precision: 6
-    t.datetime "core_deleted_at", precision: 6
+    t.datetime "deleted_at", precision: 6
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "core_companies", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|
@@ -51,6 +52,8 @@ ActiveRecord::Schema.define(version: 2021_03_26_051340) do
     t.datetime "core_created_at", precision: 6
     t.datetime "core_updated_at", precision: 6
     t.datetime "core_deleted_at", precision: 6
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["core_company_uuid"], name: "index_core_hrs_on_core_company_uuid"
   end
 
@@ -84,6 +87,8 @@ ActiveRecord::Schema.define(version: 2021_03_26_051340) do
     t.datetime "core_created_at", precision: 6
     t.datetime "core_updated_at", precision: 6
     t.datetime "core_deleted_at", precision: 6
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["core_company_uuid"], name: "index_core_ei_on_company_uuid"
     t.index ["core_employee_uuid"], name: "index_core_ei_on_employee_uuid"
   end
@@ -108,13 +113,15 @@ ActiveRecord::Schema.define(version: 2021_03_26_051340) do
     t.datetime "core_created_at", precision: 6
     t.datetime "core_updated_at", precision: 6
     t.datetime "core_deleted_at", precision: 6
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["core_company_uuid"], name: "index_core_employees_on_core_company_uuid"
   end
 
   create_table "tasks", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|
     t.uuid "core_employee_uuid", null: false
     t.uuid "configuration_uuid", null: false
-    t.uuid "core_process_uuid", null: false
+    t.uuid "core_onboarding_event_uuid", null: false
     t.uuid "core_company_uuid", null: false
     t.uuid "assignee_uuids", default: [], array: true
     t.string "assignee_type"
@@ -122,13 +129,13 @@ ActiveRecord::Schema.define(version: 2021_03_26_051340) do
     t.string "role", null: false
     t.string "status"
     t.string "complete_return_url"
-    t.datetime "core_created_at", precision: 6
-    t.datetime "core_updated_at", precision: 6
-    t.datetime "core_deleted_at", precision: 6
+    t.datetime "deleted_at", precision: 6
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["configuration_uuid"], name: "index_tasks_on_configuration_uuid"
     t.index ["core_company_uuid"], name: "index_tasks_on_core_company_uuid"
     t.index ["core_employee_uuid"], name: "index_tasks_on_core_employee_uuid"
-    t.index ["core_process_uuid"], name: "index_tasks_on_core_process_uuid"
+    t.index ["core_onboarding_event_uuid"], name: "index_tasks_on_core_onboarding_event_uuid"
   end
 
 end
