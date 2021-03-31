@@ -15,7 +15,6 @@ Rails.application.routes.draw do
 
 
   # Sidekiq Stuff
-  Sidekiq::Web.set :session_secret, Rails.application.secrets[:secret_key_base]
   mount Sidekiq::Web => "/sidekiq"
   Sidekiq::Web.use(Rack::Auth::Basic) do |user, password|
     [user, password] == ['tech@workstream.is', 'K5N@T^2MVX$q^&KBxfCR']
