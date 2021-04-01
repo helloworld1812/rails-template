@@ -27,12 +27,6 @@ ActiveRecord::Schema.define(version: 2021_03_26_051340) do
     t.index ["core_company_uuid"], name: "index_core_configurations_on_core_company_uuid"
   end
 
-  create_table "connector_example_models", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|
-    t.datetime "deleted_at", precision: 6
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "core_companies", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|
     t.string "status"
     t.string "name"
@@ -93,21 +87,6 @@ ActiveRecord::Schema.define(version: 2021_03_26_051340) do
     t.index ["core_employee_uuid"], name: "index_core_ei_on_employee_uuid"
   end
 
-  create_table "core_employee_onboarding_events", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|
-    t.uuid "core_company_uuid"
-    t.uuid "core_employee_uuid"
-    t.uuid "configuration_uuid"
-    t.datetime "core_created_at"
-    t.datetime "core_updated_at"
-    t.datetime "core_deleted_at"
-    t.string "status"
-    t.string "app_name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["core_company_uuid"], name: "index_core_employee_onboarding_events_on_core_company_uuid"
-    t.index ["core_employee_uuid"], name: "index_core_employee_onboarding_events_on_core_employee_uuid"
-  end
-
   create_table "core_employees", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|
     t.uuid "core_company_uuid", null: false
     t.datetime "core_created_at", precision: 6
@@ -118,9 +97,22 @@ ActiveRecord::Schema.define(version: 2021_03_26_051340) do
     t.index ["core_company_uuid"], name: "index_core_employees_on_core_company_uuid"
   end
 
+  create_table "core_onboarding_events", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|
+    t.uuid "core_company_uuid"
+    t.uuid "core_employee_uuid"
+    t.uuid "configuration_uuid"
+    t.datetime "core_created_at"
+    t.datetime "core_updated_at"
+    t.datetime "core_deleted_at"
+    t.string "status"
+    t.string "app_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["core_company_uuid"], name: "index_core_onboarding_events_on_core_company_uuid"
+    t.index ["core_employee_uuid"], name: "index_core_onboarding_events_on_core_employee_uuid"
+  end
+
   create_table "tasks", primary_key: "uuid", id: :uuid, default: nil, force: :cascade do |t|
-    t.uuid "core_employee_uuid", null: false
-    t.uuid "configuration_uuid", null: false
     t.uuid "core_onboarding_event_uuid", null: false
     t.uuid "core_company_uuid", null: false
     t.uuid "assignee_uuids", default: [], array: true
@@ -132,9 +124,7 @@ ActiveRecord::Schema.define(version: 2021_03_26_051340) do
     t.datetime "deleted_at", precision: 6
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["configuration_uuid"], name: "index_tasks_on_configuration_uuid"
     t.index ["core_company_uuid"], name: "index_tasks_on_core_company_uuid"
-    t.index ["core_employee_uuid"], name: "index_tasks_on_core_employee_uuid"
     t.index ["core_onboarding_event_uuid"], name: "index_tasks_on_core_onboarding_event_uuid"
   end
 

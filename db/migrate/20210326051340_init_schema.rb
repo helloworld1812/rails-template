@@ -4,11 +4,6 @@ class InitSchema < ActiveRecord::Migration[6.1]
     enable_extension "pgcrypto"
     enable_extension "plpgsql"
 
-    create_table "connector_example_models", id: false do |t|
-      t.uuid "uuid", null: false, primary_key: true
-      t.datetime "deleted_at", precision: 6
-      t.timestamps
-    end
     create_table "core_companies", id: false do |t|
       t.uuid "uuid", null: false, primary_key: true
       t.string "status"
@@ -63,7 +58,7 @@ class InitSchema < ActiveRecord::Migration[6.1]
       t.index ["core_employee_uuid"], name: "index_core_ei_on_employee_uuid"
       # t.index ["uuid"], name: "index_core_employee_informations_on_uuid"
     end
-    create_table :core_employee_onboarding_events, id: false do |t|
+    create_table :core_onboarding_events, id: false do |t|
       t.uuid :uuid, null: false, primary_key: true
       t.uuid :core_company_uuid
       t.uuid :core_employee_uuid
@@ -104,8 +99,8 @@ class InitSchema < ActiveRecord::Migration[6.1]
     end
     create_table "tasks", id: false do |t|
       t.uuid "uuid", null: false, primary_key: true
-      t.uuid "core_employee_uuid", null: false
-      t.uuid "configuration_uuid", null: false
+      # t.uuid "core_employee_uuid", null: false
+      # t.uuid "configuration_uuid", null: false
       t.uuid "core_onboarding_event_uuid", null: false
       t.uuid "core_company_uuid", null: false
       t.uuid "assignee_uuids", default: [], array: true
@@ -117,9 +112,9 @@ class InitSchema < ActiveRecord::Migration[6.1]
       t.datetime "deleted_at", precision: 6
       t.timestamps
       t.index :core_company_uuid
-      t.index :core_employee_uuid
+      # t.index :core_employee_uuid
       t.index :core_onboarding_event_uuid
-      t.index :configuration_uuid
+      # t.index :configuration_uuid
     end
   end
 
