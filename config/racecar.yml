@@ -1,12 +1,12 @@
 # These config values will be shared by all environments but can be overridden.
 common: &common
   client_id: "connector_backend_example"
-  group_id_prefix: 'connector_backend_example' #Ryan's todo: need to verify.
+  group_id_prefix: 'connector_backend_example_'
 
 development:
   <<: *common
   brokers:
-    - <%= Settings.kafka-broker-1 || "localhost:9092" %>
+    - localhost:9092
 
 test:
   <<: *common
@@ -16,10 +16,11 @@ test:
 production:
   <<: *common
   brokers:
-    - <%= Settings.kafka_broker_1 %>
-    - <%= Settings.kafka_broker_2 %>
+    - kafka1.myapp.com:9092
+    - kafka2.myapp.com:9092
+    - kafka3.myapp.com:9092
 
-sandbox:
+production:
   <<: *common
   brokers:
     - <%= Settings.kafka_broker_1 %>
