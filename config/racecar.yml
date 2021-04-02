@@ -6,7 +6,7 @@ common: &common
 development:
   <<: *common
   brokers:
-    - localhost:9092
+    - <%= Settings.kafka-broker-1 || "localhost:9092" %>
 
 test:
   <<: *common
@@ -16,6 +16,5 @@ test:
 production:
   <<: *common
   brokers:
-    - kafka1.myapp.com:9092
-    - kafka2.myapp.com:9092
-    - kafka3.myapp.com:9092
+    - <%= Settings.kafka_broker_1 %>
+    - <%= Settings.kafka_broker_2 %>

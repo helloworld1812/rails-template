@@ -40,6 +40,9 @@ $ kafka-server-start /usr/local/etc/kafka/server.properties
 ```shell
 cap sandbox(your env) deploy:check --trace
 
+cap sandbox(your env) puma:config
+cap sandbox(your env) puma:systemd:enable 
+cap sandbox(your env) puma:systemd:config 
 cap sandbox(your env) sidekiq:install --trace
 ```
 
