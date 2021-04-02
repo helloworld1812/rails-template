@@ -1,7 +1,7 @@
-server '54.71.108.32', user: 'ec2-user', roles: %w(app db web)
+server '54.218.116.221', user: 'ec2-user', roles: %w(app db web)
 
 set :rails_env, 'sandbox'
-set :branch, 'deploy'
+set :branch, 'main'
 set :deploy_to, '/home/ec2-user/rails/connector'
 
 set :sidekiq_service_unit_user, :system
