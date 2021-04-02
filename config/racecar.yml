@@ -18,3 +18,9 @@ production:
   brokers:
     - <%= Settings.kafka_broker_1 %>
     - <%= Settings.kafka_broker_2 %>
+
+sandbox:
+  <<: *common
+  brokers:
+    - <%= Settings.kafka_broker_1 %>
+    - <%= Settings.kafka_broker_2 %>
