@@ -1,0 +1,6 @@
+tasks:
+  - Core::CompanyConsumer
+  - Core::CompanyStaffConsumer
+  - Core::EmployeeConsumer
+  - Core::EmployeeInformationConsumer
+  - Core::EmployeeOnboardingEventConsumer

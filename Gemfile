@@ -67,6 +67,7 @@ group :development do
   gem 'spring'
   gem 'capistrano', '~> 3.16', require: false
   gem 'capistrano-rails', '~> 1.6', '>= 1.6.1', require: false
+  gem 'capistrano-racecar'
   gem 'capistrano3-puma'
   gem 'capistrano-rbenv'
   gem 'capistrano-sidekiq'

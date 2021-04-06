@@ -17,6 +17,9 @@ require "capistrano/rails/migrations"
 # require "capistrano/passenger"
 #
 require 'capistrano/foreman'
+require 'capistrano/racecar'
+
+install_plugin Capistrano::Racecar
 #
 require 'capistrano/puma'
 install_plugin Capistrano::Puma
