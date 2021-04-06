@@ -38,6 +38,7 @@ gem 'workstream-auth', github: 'helloworld1812/workstream-auth', branch: 'main'
 # kafka message consumer
 # gem 'google-protobuf', "~> 3.14"
 gem 'racecar'
+gem 'foreman'
 gem 'workstream_protocol', '0.2.2'
 gem 'google-protobuf', platforms: [:ruby]
 
