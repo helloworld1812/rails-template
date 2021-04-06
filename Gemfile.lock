@@ -89,7 +89,7 @@ GEM
     capistrano-foreman (1.4.0)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
-    capistrano-racecar (1.0.1)
+    capistrano-racecar (1.0.2)
       capistrano (>= 3.9.0)
       capistrano-bundler
     capistrano-rails (1.6.1)
