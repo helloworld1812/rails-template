@@ -20,7 +20,7 @@ production:
     - kafka2.myapp.com:9092
     - kafka3.myapp.com:9092
 
-production:
+sandbox:
   <<: *common
   brokers:
     - <%= Settings.kafka_broker_1 %>
