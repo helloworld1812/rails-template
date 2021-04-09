@@ -34,6 +34,18 @@ $ kafka-server-start /usr/local/etc/kafka/server.properties
 ```
 
 ## Deploy
+
+### Before Script (options)
+
+```shell
+cap sandbox(your env) deploy:check --trace
+
+cap sandbox(your env) puma:config
+cap sandbox(your env) puma:systemd:enable 
+cap sandbox(your env) puma:systemd:config 
+cap sandbox(your env) sidekiq:install --trace
+```
+
 ### Service Example
 * __puma.service example__
 ```bash
@@ -55,7 +67,7 @@ ExecReload=/bin/kill -TSTP $MAINPID
 # StandardOutput=append:/home/ec2-user/rails/connector/shared/log/puma_access.log
 # StandardError=append:/home/ec2-user/rails/connector/shared/log/puma_error.log
 
-Restart=always
+Restart=alwaysl
 RestartSec=1
 SyslogIdentifier=puma
 

@@ -38,6 +38,7 @@ gem 'workstream-auth', github: 'helloworld1812/workstream-auth', branch: 'main'
 # kafka message consumer
 # gem 'google-protobuf', "~> 3.14"
 gem 'racecar'
+gem 'foreman'
 gem 'workstream_protocol', '0.2.2'
 gem 'google-protobuf', platforms: [:ruby]
 
@@ -66,6 +67,7 @@ group :development do
   gem 'spring'
   gem 'capistrano', '~> 3.16', require: false
   gem 'capistrano-rails', '~> 1.6', '>= 1.6.1', require: false
+  gem 'capistrano-racecar'
   gem 'capistrano3-puma'
   gem 'capistrano-rbenv'
   gem 'capistrano-sidekiq'

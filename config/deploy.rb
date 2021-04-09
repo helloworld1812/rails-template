@@ -4,7 +4,12 @@ lock "~> 3.16.0"
 set :application, "workstream-connector-example"
 set :repo_url, "https://github.com/helloworld1812/connector-backend-example"
 
+set :default_shell, '/bin/bash -l'
+set :rbenv_type, :user
 set :rbenv_ruby, File.read('.ruby-version').strip
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+set :rbenv_roles, :all
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
