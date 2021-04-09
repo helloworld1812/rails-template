@@ -1,19 +1,29 @@
-app_name: todo
+app_name: your_app_name # TODO: please replace it with your app name, e.g.  adp_connector
 version: '1.0'
-author:
-  name: todo
-  email: todo@workstream.is
+authors:
+  -
+    name: todo # TODO: please replace it with your name
+    email: todo@example.is #TODO: please replace it with your email
+    role: Developer
+  -
+    name: todo # TODO: please replace it with the QA's name
+    email: todo@example.is # TODO: please replace it with the QA's email
+    role: QA
+  -
+    name: todo #TODO: please replace it with the Product Manager's name
+    email: todo@example.is #TODO: please replace it with Product Manager's email
+    role: Product Manager
+
 tasks:
   task_one:
-    assignee_type: employee
+    assignment_category: employee
     sequence: 1
   task_two:
-    assignee_type: hr
+    assignment_category: hr
     sequence: 2
-
 ## Add more task if your connector needs.
 #  task_three:
-#    assignee_type: hr
-#    sequence: 2
+#    assignment_category: hr
+#    sequence: 3
 options:
   task_completed_return_url: true
