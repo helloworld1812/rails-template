@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Task, type: :model do
-  let(:meta) { YAML.load_file(Rails.root.join('config/metadata.yml')).with_indifferent_access}
+  let(:meta) { YAML.load_file(Rails.root.join('config/metadatas/v1.yml')).with_indifferent_access}
 
   describe 'keys' do
     it 'should contains essential keys' do

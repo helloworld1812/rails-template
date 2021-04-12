@@ -3,16 +3,11 @@ require 'sidekiq/cron/web'
 # require 'sidekiq-scheduler/web'
 
 Rails.application.routes.draw do
-  resources :configurations
-  namespace :core do
-    resources :tasks
+  def draw(routes_name)
+    instance_eval(File.read(Rails.root.join("config/routes/#{routes_name}.rb")))
   end
-  resource :metadata, only: :show, default: { format: :json }
-  resources :translations, only: :show, param: :code
 
-  resources :tasks, only: :show, param: :task_name
-
-
+  draw :v1
 
   # Sidekiq Stuff
   mount Sidekiq::Web => "/sidekiq"
