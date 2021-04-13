@@ -1,4 +1,5 @@
 namespace :v1 do
+  resource :health
   resources :configurations
   namespace :core do
     resources :tasks
